@@ -7,16 +7,18 @@ export default async function Products() {
   
     return (
       <div>
-        <h1>Lista de Productos</h1>
-        <ul>
+       <section className="max-w-4xl mx-auto">
+        <h2 className="text-2xl font-semibold mb-4">Lista de Productos</h2>
+        <ul className="space-y-4">
           {products.map(product => (
-            <li key={product.id}>
-              <h2>{product.title}</h2>
-              <p>{product.description}</p>
-              <strong>${product.price}</strong>
+            <li key={product.id} className="p-4 bg-white rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
+              <p className="text-gray-700 mb-2">{product.description}</p>
+              <strong className="text-lg font-bold text-green-500">${product.price}</strong>
             </li>
           ))}
         </ul>
+      </section>
       </div>
     );
   }

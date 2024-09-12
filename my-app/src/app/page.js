@@ -1,32 +1,14 @@
+import Products from "./product";
 
-export default function HomePage() {
-     
-  async function Products() {
-    // Llamada asíncrona a la API de productos en el servidor
-    const res = await fetch('https://fakestoreapi.com/products');
-    const products = await res.json(); // Convertir la respuesta en JSON
-  
-    return (
-      <div>
-        <h1>Lista de Productos</h1>
-        <ul>
-          {products.map(product => (
-            <li key={product.id}>
-              <h2>{product.title}</h2>
-              <p>{product.description}</p>
-              <strong>${product.price}</strong>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-  
+export default async function HomePage() {
+  // Llamada asíncrona a la API de productos en el servidor
+  const res = await fetch('https://fakestoreapi.com/products');
+  const products = await res.json(); // Convertir la respuesta en JSON
+
   return (
-    
-    <main>
-      <h1>Bienvenido a la Tienda</h1>
-      {Products()}
-  </main>
+    <main className="p-6 bg-gray-100 min-h-screen">
+      <h1 className="text-3xl font-bold mb-6 text-center">Bienvenido a la Tienda</h1>
+        <Products />
+    </main>
   );
 }
