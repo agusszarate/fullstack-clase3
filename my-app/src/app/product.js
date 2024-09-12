@@ -1,7 +1,6 @@
+// Importar 'useState' y 'useEffect' no es necesario en componentes del lado del servidor.
 
-export default function HomePage() {
-     
-  async function Products() {
+export default async function Products() {
     // Llamada asíncrona a la API de productos en el servidor
     const res = await fetch('https://fakestoreapi.com/products');
     const products = await res.json(); // Convertir la respuesta en JSON
@@ -22,11 +21,3 @@ export default function HomePage() {
     );
   }
   
-  return (
-    
-    <main>
-      <h1>Bienvenido a la Tienda</h1>
-      {Products()}
-  </main>
-  );
-}
